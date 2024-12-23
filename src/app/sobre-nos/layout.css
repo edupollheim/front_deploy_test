@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.photosContainer {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.photoWrapper {
+    text-align: center;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.caption {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.text {
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* Exemplo de CSS adicional para maior controle */
+@media (max-width: 640px) {
+    .text {
+        font-size: 1rem; /* Ajusta para telas pequenas */
+    }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+    .text {
+        font-size: 1.25rem; /* Ajusta para telas médias */
+    }
+}
+
+@media (min-width: 768px) {
+    .text {
+        font-size: 1.5rem; /* Ajusta para telas grandes */
+    }
+}

@@ -1,0 +1,7 @@
+.card-custom {
+    transition: transform 0.2s ease;
+}
+
+.card-custom:hover {
+    transform: scale(1.05);
+}

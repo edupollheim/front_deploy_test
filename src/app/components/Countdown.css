@@ -1,0 +1,61 @@
+.countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(125, 125, 125, 0.75); /* Fundo branco com leve transparência */
+    border-radius: 15px; /* Bordas arredondadas */
+    padding: 30px; /* Espaçamento interno */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+    max-width: 900px; /* Limitar largura para dispositivos maiores */
+    margin: 20px auto; /* Centralizar horizontalmente */
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-around; /* Espalha os itens igualmente */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    width: 100%; /* Garante que a largura se ajuste */
+    margin: 20px 0; /* Espaçamento vertical */
+}
+
+.flip-down {
+    flex: 1; /* Cada item ocupa espaço igual */
+    min-width: 130px; /* Largura mínima para evitar que fiquem muito pequenos */
+    margin: 0 10px; /* Espaçamento horizontal entre os itens */
+    background: rgba(255, 189, 89, 0.8); /* Fundo dourado translúcido */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+.flip-item {
+    font-size: 3rem; /* Tamanho maior para melhor legibilidade */
+    color: #3f3f3f; /* Cor do texto, um tom mais escuro */
+    font-family: 'Playfair Display', serif; /* Fonte elegante */
+}
+
+.time-label {
+    font-size: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #7a7a7a; /* Cor do rótulo, um tom mais suave */
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 768px) {
+    .countdown {
+        padding: 20px; /* Reduzir o espaçamento interno em telas pequenas */
+    }
+
+    .time-container {
+        flex-direction: flex; /* Empilha os itens verticalmente em telas menores */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .flip-down {
+        margin-bottom: 10px; /* Espaçamento entre os itens empilhados */
+    }
+
+    .flip-item {
+        font-size: 2.5rem; /* Tamanho menor em telas pequenas */
+    }
+}
