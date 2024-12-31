@@ -16,10 +16,10 @@ const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
 type Present = {
     id: number; // ID único do presente
     name: string; // Nome do presente
-    category: string; // Categoria do presente
-    estimatedValue: number; // Valor estimado do presente
-    status: string; // Status do presente (ex.: disponível, reservado, etc.)
+    price: number; // Valor estimado do presente
     quantity: number; // Quantidade disponível
+    description: string; // Descrição do presente
+    image: string; // URL da imagem do presente
 };
 
 // Componente principal
@@ -104,9 +104,8 @@ export default function Home() {
                     <Card key={present.id}>
                         <CardContent>
                             <CardTitle>{present.name}</CardTitle>
-                            <CardDescription>{present.category}</CardDescription>
-                            <p>Valor Estimado: R$ {present.estimatedValue}</p>
-                            <p>Status: {present.status}</p>
+                            <CardDescription>{present.description}</CardDescription>
+                            <p>Valor Estimado: R$ {present.price}</p>
                             <p>Quantidade: {present.quantity}</p>
 
                             <button
@@ -158,7 +157,7 @@ export default function Home() {
                                         city="Joinville" // Cidade
                                         cep="89.225-570" // CEP
                                         code={`CASAMENTO` + Date.now()} // Código único
-                                        amount={selectedPresent.estimatedValue} // Valor do presente
+                                        amount={selectedPresent.price} // Valor do presente
                                     />
                                 </div>
                                 <button
