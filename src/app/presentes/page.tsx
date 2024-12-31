@@ -10,7 +10,7 @@ import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/c
 import PIX from "react-qrcode-pix";
 
 // URL base do backend para chamadas à API
-const BACKEND_URL = 'http://localhost:3001/api';
+const BACKEND_URL = 'http://localhost:3001/';
 
 // Tipagem para os dados de presentes
 type Present = {
@@ -39,7 +39,7 @@ export default function Home() {
         const fetchPresents = async () => {
             try {
                 // Requisição para buscar a lista de presentes no backend
-                const response = await axios.get(`${BACKEND_URL}/presents`);
+                const response = await axios.get(`${BACKEND_URL}/presentes`);
                 setPresents(response.data); // Atualiza o estado com os dados recebidos
             } catch (error) {
                 // Trata erros de carregamento

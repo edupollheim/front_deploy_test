@@ -16,7 +16,7 @@ type Message = {
     createdAt: string;
 };
 
-const BACKEND_URL = "http://localhost:3001/api";
+const BACKEND_URL = "http://localhost:3001/";
 
 const Guestbook = () => {
     const [name, setName] = useState<string>("");
@@ -31,7 +31,7 @@ const Guestbook = () => {
     const loadMessages = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(`${BACKEND_URL}/guestbook`);
+            const response = await fetch(`${BACKEND_URL}/recados`);
             if (!response.ok) throw new Error("Erro ao carregar as mensagens.");
             const data = await response.json();
             setMessages(data);
@@ -54,7 +54,7 @@ const Guestbook = () => {
 
         if (name && message) {
             try {
-                const response = await fetch(`${BACKEND_URL}/guestbook`, {
+                const response = await fetch(`${BACKEND_URL}/recados`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
