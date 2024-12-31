@@ -16,7 +16,7 @@ type Message = {
     createdAt: string;
 };
 
-const BACKEND_URL = "http://localhost:3001/api";
+const BACKEND_URL = "https://casamento.pollheim.com.br/api";
 
 const Guestbook = () => {
     const [name, setName] = useState<string>("");

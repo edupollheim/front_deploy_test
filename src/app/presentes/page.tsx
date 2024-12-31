@@ -10,7 +10,7 @@ import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/c
 import PIX from "react-qrcode-pix";
 
 // URL base do backend para chamadas à API
-const BACKEND_URL = 'http://localhost:3001/api';
+const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
 
 // Tipagem para os dados de presentes
 type Present = {
