@@ -1,192 +1,212 @@
 'use client';
+import { useEffect, useState } from 'react';
+import PIX from 'react-qrcode-pix';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { AlertCircle } from 'lucide-react';
 
-// Importação de hooks do React para gerenciamento de estado, efeitos colaterais e referência a elementos DOM
-import { useEffect, useState, useRef } from 'react';
-// Biblioteca para realizar chamadas HTTP
-import axios from 'axios';
-// Importação de componentes de UI para estilizar os cartões
-import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
-// Biblioteca para gerar QR Codes para pagamentos PIX
-import PIX from "react-qrcode-pix";
+const BACKEND_URL = 'http://192.168.15.10:3001/api';
 
-// URL base do backend para chamadas à API
-const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
-
-// Tipagem para os dados de presentes
 type Present = {
-    id: number; // ID único do presente
-    name: string; // Nome do presente
-    price: number; // Valor estimado do presente
-    quantity: number; // Quantidade disponível
-    description: string; // Descrição do presente
-    image: string; // URL da imagem do presente
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  quantity: number;
 };
 
-// Componente principal
 export default function Home() {
-    // Estados para armazenar os presentes, status de carregamento, erro, presente selecionado e método de pagamento
-    const [presents, setPresents] = useState<Present[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [selectedPresent, setSelectedPresent] = useState<Present | null>(null);
-    const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
+  const [presents, setPresents] = useState<Present[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedPresent, setSelectedPresent] = useState<Present | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
 
-    // Referência para o cartão modal, usado para detectar cliques fora dele
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    // Efeito para carregar os presentes ao montar o componente
-    useEffect(() => {
-        const fetchPresents = async () => {
-            try {
-                // Requisição para buscar a lista de presentes no backend
-                const response = await axios.get(`${BACKEND_URL}/presentes`);
-                setPresents(response.data); // Atualiza o estado com os dados recebidos
-            } catch (error) {
-                // Trata erros de carregamento
-                setError('Erro ao carregar presentes.');
-                console.error('Erro ao carregar presentes:', error);
-            } finally {
-                setLoading(false); // Define o carregamento como concluído
-            }
-        };
-
-        // Chamada à função de carregamento de presentes
-        fetchPresents().then(r => r);
-    }, []);
-
-    // Função para selecionar um presente
-    const handleGift = (present: Present) => {
-        setSelectedPresent(present); // Define o presente selecionado
-        setPaymentMethod(null); // Reseta o método de pagamento
-    };
-
-    // Função para selecionar o método de pagamento
-    const selectPaymentMethod = (method: string) => {
-        setPaymentMethod(method); // Atualiza o estado com o método selecionado
-    };
-
-    // Função para fechar o modal do presente
-    const closeGiftCard = () => {
-        setSelectedPresent(null); // Reseta o presente selecionado
-        setPaymentMethod(null); // Reseta o método de pagamento
-    };
-
-    // Efeito para detectar cliques fora do modal e fechá-lo
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-                closeGiftCard(); // Fecha o modal ao clicar fora
-            }
-        };
-
-        if (selectedPresent) {
-            // Adiciona o evento somente quando um presente está selecionado
-            document.addEventListener('mousedown', handleClickOutside);
+  useEffect(() => {
+    const fetchPresents = async () => {
+      try {
+        const response = await fetch(`${BACKEND_URL}/presentes`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch presents');
         }
+        const data = await response.json();
+        setPresents(data);
+      } catch (error) {
+        setError('Erro ao carregar presentes.');
+        console.error('Erro ao carregar presentes:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        return () => {
-            // Remove o evento ao desmontar ou quando o presente é deselecionado
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [selectedPresent]);
+    fetchPresents();
+  }, []);
 
-    // Renderização da tela de carregamento, erro ou lista de presentes
-    if (loading) return <div className="text-center text-xl text-gray-700">Carregando...</div>;
-    if (error) return <div className="text-center text-xl text-red-500">{error}</div>;
+  const handleGift = (present: Present) => {
+    setSelectedPresent(present);
+    setPaymentMethod(null);
+  };
 
+  const closeGiftCard = () => {
+    setSelectedPresent(null);
+    setPaymentMethod(null);
+  };
+
+  if (loading) {
     return (
-        <div className="max-w-4xl mx-auto p-4">
-            <h1 className="text-3xl font-semibold text-center mb-6 text-[#cf4141]">Lista de Presentes de Casamento</h1>
-
-            {/* Lista de presentes exibida em um layout de grade */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {presents.map((present) => (
-                    <Card key={present.id}>
-                        <CardContent>
-                            <CardTitle>{present.name}</CardTitle>
-                            <CardDescription>{present.description}</CardDescription>
-                            <p>Valor Estimado: R$ {present.price}</p>
-                            <p>Quantidade: {present.quantity}</p>
-
-                            <button
-                                onClick={() => handleGift(present)}
-                                className="px-4 py-2 mt-4 bg-green-600 text-white rounded-lg hover:bg-green-700"
-                            >
-                                Presentear
-                            </button>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-
-            {/* Modal para presente selecionado */}
-            {selectedPresent && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div ref={cardRef} className="bg-gray-700 rounded-lg shadow-lg p-6 max-w-sm w-full">
-                        {/* Exibição da escolha do método de pagamento */}
-                        {!paymentMethod ? (
-                            <>
-                                <h2 className="text-2xl font-semibold text-center mb-4">
-                                    Escolha o Método de Pagamento
-                                </h2>
-                                <div className="flex justify-around">
-                                    <button
-                                        onClick={() => selectPaymentMethod('PIX')}
-                                        className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
-                                    >
-                                        PIX
-                                    </button>
-                                    <button
-                                        onClick={() => selectPaymentMethod('CREDITO')}
-                                        className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                                    >
-                                        Crédito
-                                    </button>
-                                </div>
-                            </>
-                        ) : paymentMethod === 'PIX' ? (
-                            // Exibição do QR Code para pagamento via PIX
-                            <>
-                                <h2 className="text-2xl font-semibold text-center mb-4">
-                                    QR Code para {selectedPresent.name}
-                                </h2>
-                                <div className="flex justify-center">
-                                    <PIX
-                                        pixkey="12171959983" // Chave PIX do recebedor
-                                        merchant="Eduardo Henrique Pollheim" // Nome do recebedor
-                                        city="Joinville" // Cidade
-                                        cep="89.225-570" // CEP
-                                        code={`CASAMENTO` + Date.now()} // Código único
-                                        amount={selectedPresent.price} // Valor do presente
-                                    />
-                                </div>
-                                <button
-                                    onClick={closeGiftCard}
-                                    className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
-                                >
-                                    Fechar
-                                </button>
-                            </>
-                        ) : (
-                            // Instruções para pagamento via crédito
-                            <>
-                                <h2 className="text-2xl font-semibold text-center mb-4">
-                                    Pagamento via Crédito
-                                </h2>
-                                <p className="text-center mb-4">
-                                    Para concluir o pagamento, entre em contato pelo nosso site.
-                                </p>
-                                <button
-                                    onClick={closeGiftCard}
-                                    className="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
-                                >
-                                    Fechar
-                                </button>
-                            </>
-                        )}
-                    </div>
-                </div>
-            )}
-        </div>
+      <div className="flex h-screen items-center justify-center">
+        <div className="text-2xl text-muted-foreground">Carregando...</div>
+      </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="flex items-center gap-2 text-2xl text-destructive">
+          <AlertCircle className="h-6 w-6" />
+          {error}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          <div className="text-center space-y-2">
+            <h1 className="text-4xl font-bold tracking-tight">Lista de Presentes</h1>
+            <p className="text-muted-foreground">Escolha um presente especial para celebrar conosco</p>
+          </div>
+          
+          <Separator />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {presents.map((present) => (
+              <Card key={present.id} className="group hover:shadow-lg transition-shadow duration-200">
+                <CardHeader className="space-y-4">
+                  <div className="aspect-square w-full overflow-hidden rounded-lg">
+                    <img
+                      src={present.image}
+                      alt={present.name}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <CardTitle className="text-xl">{present.name}</CardTitle>
+                    <Badge variant="secondary">
+                      {present.quantity} disponível{present.quantity !== 1 ? 'is' : ''}
+                    </Badge>
+                  </div>
+                  <CardDescription className="line-clamp-2">{present.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold text-primary">
+                    R$ {present.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button 
+                    className="w-full" 
+                    size="lg"
+                    onClick={() => handleGift(present)}
+                  >
+                    Presentear
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <Dialog open={!!selectedPresent} onOpenChange={closeGiftCard}>
+          <DialogContent className="sm:max-w-md">
+            {!paymentMethod ? (
+              <>
+                <DialogHeader>
+                  <DialogTitle>Escolha o método de pagamento</DialogTitle>
+                  <DialogDescription>
+                    {selectedPresent?.name} - R$ {selectedPresent?.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="mt-4">
+                  {selectedPresent && (
+                    <div className="mb-6 aspect-video w-full overflow-hidden rounded-lg">
+                      <img
+                        src={selectedPresent.image}
+                        alt={selectedPresent.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="grid grid-cols-2 gap-4">
+                    <Button 
+                      variant="outline"
+                      className="h-24 space-y-2"
+                      onClick={() => setPaymentMethod('PIX')}
+                    >
+                      <div className="text-2xl">💸</div>
+                      <div>PIX</div>
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="h-24 space-y-2"
+                      onClick={() => setPaymentMethod('CREDITO')}
+                    >
+                      <div className="text-2xl">💳</div>
+                      <div>Cartão de Crédito</div>
+                    </Button>
+                  </div>
+                </div>
+              </>
+            ) : paymentMethod === 'PIX' ? (
+              <>
+                <DialogHeader>
+                  <DialogTitle>QR Code PIX</DialogTitle>
+                  <DialogDescription>
+                    Escaneie o código para realizar o pagamento
+                  </DialogDescription>
+                </DialogHeader>
+                <ScrollArea className="h-72">
+                  <div className="flex justify-center p-4">
+                    {selectedPresent && (
+                      <PIX
+                        pixkey="12171959983"
+                        merchant="Eduardo Henrique Pollheim"
+                        city="Joinville"
+                        cep="89.225-570"
+                        code={`CASAMENTO${Date.now()}`}
+                        amount={selectedPresent.price}
+                      />
+                    )}
+                  </div>
+                </ScrollArea>
+                <DialogFooter>
+                  <Button variant="ghost" onClick={closeGiftCard}>Fechar</Button>
+                </DialogFooter>
+              </>
+            ) : (
+              <>
+                <DialogHeader>
+                  <DialogTitle>Pagamento com Cartão de Crédito</DialogTitle>
+                  <DialogDescription>
+                    Para finalizar sua compra, entre em contato através do nosso site
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                  <Button variant="ghost" onClick={closeGiftCard}>Fechar</Button>
+                </DialogFooter>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
+  );
 }
