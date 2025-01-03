@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(125, 125, 125, 0.75); /* Fundo branco com leve transparência */
+    background-color: rgba(125, 125, 125, 0.00); /* Fundo branco com leve transparência */
     border-radius: 15px; /* Bordas arredondadas */
     padding: 30px; /* Espaçamento interno */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
