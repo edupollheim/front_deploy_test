@@ -50,7 +50,7 @@ export default function Home() {
 
                 <div className="absolute bottom-10 w-full flex justify-center items-center text-center text-[#ffbd59]">
                     <div>
-                        <h1 className="letter max-w-screen-lg" style={{ fontFamily: "Italiana", fontSize: '1.75rem', lineHeight: '3rem' }}>
+                        <h1 className="letter max-w-screen-lg" style={{ fontFamily: "Italiana", fontSize: '1.50rem', lineHeight: '3rem' }}>
                             Vamos nos casar! Estamos preparando tudo com muito carinho para
                             curtir cada momento com nossos amigos e familiares queridos!
                         </h1>
