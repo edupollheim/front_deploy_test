@@ -43,12 +43,12 @@ export default function Home() {
                     }}
                 ></div>
                 <div className="logo-container flex justify-center items-center relative mt-[5.5rem]">
-                    <h1 className="letter letter-e text-[#ffbd59]">Eduardo</h1>
-                    <span className="letter letter-ampersand text-[#ffbd59]">e</span>
-                    <h1 className="letter letter-j text-[#ffbd59]">Jéssica</h1>
+                    <h1 className="letter letter-e text-[#d6b293]">Eduardo</h1>
+                    <span className="letter letter-ampersand text-[#d6b293]">e</span>
+                    <h1 className="letter letter-j text-[#d6b293]">Jéssica</h1>
                 </div>
 
-                <div className="absolute bottom-10 w-full flex justify-center items-center text-center text-[#ffbd59]">
+                <div className="absolute bottom-10 w-full flex justify-center items-center text-center text-[#d6b293]">
                     <div>
                         <h1 className="letter max-w-screen-lg" style={{ fontFamily: "Italiana", fontSize: '1.50rem', lineHeight: '3rem' }}>
                             Vamos nos casar! Estamos preparando tudo com muito carinho para
@@ -77,7 +77,7 @@ export default function Home() {
                     }}
                 ></div>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="countdown-title mb-2 letter text-[#ffbd59]">Contagem regressiva</h2>
+                    <h2 className="countdown-title mb-2 letter text-[#d6b293]">Contagem regressiva</h2>
                     <Countdown targetDate={targetDate} />
                 </div>
             </section>

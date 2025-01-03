@@ -34,7 +34,7 @@ export default function SobreNos() {
                 </div>
                 {/* Citação */}
                 <div className="w-full px-4 md:px-8 mt-10">
-                    <div className="bg-slate-100 bg-opacity-75 p-4 rounded-lg shadow-lg">
+                    <div className="p-4 rounded-lg">
                         <p className="text-center text-lg text-[#b6b187]" style={{ fontFamily: 'Italiana' }}>
                             “Foi o Senhor que fez isto, e é maravilhoso aos nossos olhos” <br /> Salmos 118:23
                         </p>

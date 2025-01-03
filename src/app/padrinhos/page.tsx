@@ -17,7 +17,7 @@ const padrinhos = [
 export default function Padrinhos() {
     return (
         <>
-            <h2 className="text-4xl font-extrabold text-center text-primary mb-8 pt-4">Nossos Padrinhos</h2>
+            <h2 className="text-4xl font-extrabold text-center text-primary mb-8 pt-4 text-[#d6b293]">Nossos Padrinhos</h2>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
                     {/* Coluna Esquerda: Lista de Padrinhos */}
@@ -39,8 +39,8 @@ export default function Padrinhos() {
                     </div>
 
                     {/* Coluna Direita: Texto de Agradecimento */}
-                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed text-gray-800 space-y-4 pl-6 pr-6">
-                        <h2 className="text-3xl font-semibold mb-4 text-primary text-center">Aos nossos amados padrinhos:</h2>
+                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed text-gray-800 space-y-4 pl-6 pr-6 text-[#d6b293]">
+                        <h2 className="text-3xl font-semibold mb-4 text-primary text-center text-[#d6b293]">Aos nossos amados padrinhos:</h2>
                         <p className="text-justify">
                             Sentimos muita emoção por ter vocês ao nosso lado e por podermos compartilhar toda a alegria desta nova fase em nossas vidas: nosso casamento! Estamos imensamente gratos por todo o apoio, carinho e amor que sempre nos dedicaram.
                         </p>
@@ -52,7 +52,7 @@ export default function Padrinhos() {
                         </p>
                         <br />
                         <p className="mt-6 font-bold text-xl text-center">Com todo o carinho,</p>
-                        <p className="font-bold text-2xl mt-4 text-primary text-center">Eduardo & Jéssica</p>
+                        <p className="font-bold text-2xl mt-4 text-primary text-center text-[#d6b293]">Eduardo & Jéssica</p>
                         <br />
                         <br />
                     </div>
