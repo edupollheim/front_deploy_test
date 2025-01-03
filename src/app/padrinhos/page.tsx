@@ -18,7 +18,7 @@ export default function Padrinhos() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/padrinhos")
+        fetch("https://casamento.pollheim.com.br/api/padrinhos")
             .then((res) => res.json())
             .then((data) => setPadrinhos(data))
             .catch((err) => console.error("Erro ao buscar padrinhos:", err));
