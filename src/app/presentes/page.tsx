@@ -96,7 +96,7 @@ export default function Home() {
 
     return (
         <div className="max-w-4xl mx-auto p-4">
-            <h1 className="text-3xl font-semibold text-center mb-6">Lista de Presentes de Casamento</h1>
+            <h1 className="text-3xl font-semibold text-center mb-6 text-[#cf4141]">Lista de Presentes de Casamento</h1>
 
             {/* Lista de presentes exibida em um layout de grade */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
