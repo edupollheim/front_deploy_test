@@ -1,63 +1,111 @@
+'use client'
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useEffect, useState } from "react";
 import "./style.css";
-
-const padrinhos = [
-    { id: 1, nome: "Padrinho 1", foto: "https://via.placeholder.com/150" },
-    { id: 2, nome: "Padrinho 2", foto: "https://via.placeholder.com/150" },
-    { id: 3, nome: "Padrinho 3", foto: "https://via.placeholder.com/150" },
-    { id: 4, nome: "Padrinho 4", foto: "https://via.placeholder.com/150" },
-    { id: 5, nome: "Padrinho 5", foto: "https://via.placeholder.com/150" },
-    { id: 6, nome: "Padrinho 6", foto: "https://via.placeholder.com/150" },
-    { id: 7, nome: "Padrinho 7", foto: "https://via.placeholder.com/150" },
-    { id: 8, nome: "Padrinho 8", foto: "https://via.placeholder.com/150" },
-    { id: 9, nome: "Padrinho 9", foto: "https://via.placeholder.com/150" },
-    { id: 10, nome: "Padrinho 10", foto: "https://via.placeholder.com/150" },
-];
+import Image from "next/image";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function Padrinhos() {
+    const [padrinhos, setPadrinhos] = useState([]);
+    const [selectedPadrinho, setSelectedPadrinho] = useState<any>(null);
+
+    const handleOpen = (padrinho: any) => {
+        setSelectedPadrinho(padrinho);
+    };
+
+    const handleClose = () => {
+        setSelectedPadrinho(null);
+    };
+
+    useEffect(() => {
+        fetch("http://localhost:3001/api/padrinhos")
+            .then((res) => res.json())
+            .then((data) => setPadrinhos(data))
+            .catch((err) => console.error("Erro ao buscar padrinhos:", err));
+    }, []);
+
     return (
         <>
-            <h2 className="text-4xl font-extrabold text-center text-primary mb-8 pt-4 text-[#d6b293]">Nossos Padrinhos</h2>
+            <h2 className="text-4xl font-extrabold text-center mb-8 pt-4 text-[#d6b293]">
+                Nossos Padrinhos
+            </h2>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
                     {/* Coluna Esquerda: Lista de Padrinhos */}
                     <div className="flex justify-center items-center">
-                        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-                            {padrinhos.map((padrinho) => (
-                                <Card key={padrinho.id} className="card-custom shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                            {padrinhos.map((padrinho: any) => (
+                                <Card
+                                    key={padrinho.id}
+                                    onClick={() => handleOpen(padrinho)}
+                                    className="cursor-pointer card-custom shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-lg"
+                                >
                                     <CardHeader>
-                                        <img
-                                            src={padrinho.foto}
+                                        <Image
+                                            src={padrinho.base64Foto}
                                             alt={padrinho.nome}
+                                            width={400}
+                                            height={300}
                                             className="w-full h-32 md:h-40 object-cover rounded-t-lg"
                                         />
                                     </CardHeader>
-                                    <CardTitle className="text-center text-sm font-semibold py-2">{padrinho.nome}</CardTitle>
+                                    <CardTitle className="text-center text-sm font-semibold py-2 text-[#d6b293]">
+                                        {padrinho.nome}
+                                    </CardTitle>
                                 </Card>
                             ))}
                         </div>
                     </div>
 
                     {/* Coluna Direita: Texto de Agradecimento */}
-                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed text-gray-800 space-y-4 pl-6 pr-6 text-[#d6b293]">
-                        <h2 className="text-3xl font-semibold mb-4 text-primary text-center text-[#d6b293]">Aos nossos amados padrinhos:</h2>
+                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed space-y-4 pl-6 pr-6 text-[#d6b293]">
+                        <h2 className="text-3xl font-semibold mb-4 text-[#d6b293] text-center">
+                            Aos nossos amados padrinhos:
+                        </h2>
                         <p className="text-justify">
-                            Sentimos muita emoção por ter vocês ao nosso lado e por podermos compartilhar toda a alegria desta nova fase em nossas vidas: nosso casamento! Estamos imensamente gratos por todo o apoio, carinho e amor que sempre nos dedicaram.
+                            Sentimos muita emoção por ter vocês ao nosso lado e por podermos
+                            compartilhar toda a alegria desta nova fase em nossas vidas:
+                            nosso casamento! Estamos imensamente gratos por todo o apoio,
+                            carinho e amor que sempre nos dedicaram.
                         </p>
                         <p className="text-justify">
-                            A presença de vocês torna este momento ainda mais especial e memorável. Queremos que saibam que são parte essencial da nossa história e que cada gesto de vocês ficará eternamente guardado em nossos corações.
+                            A presença de vocês torna este momento ainda mais especial e
+                            memorável. Queremos que saibam que são parte essencial da nossa
+                            história e que cada gesto de vocês ficará eternamente guardado em
+                            nossos corações.
                         </p>
                         <p className="text-justify">
-                            Vocês são exemplos de amizade, lealdade e companheirismo, e temos a sorte de poder contar com pessoas tão maravilhosas em nossas vidas.
+                            Vocês são exemplos de amizade, lealdade e companheirismo, e temos
+                            a sorte de poder contar com pessoas tão maravilhosas em nossas
+                            vidas.
                         </p>
                         <br />
                         <p className="mt-6 font-bold text-xl text-center">Com todo o carinho,</p>
-                        <p className="font-bold text-2xl mt-4 text-primary text-center text-[#d6b293]">Eduardo & Jéssica</p>
+                        <p className="font-bold text-2xl mt-4 text-center text-[#d6b293]">
+                            Eduardo & Jéssica
+                        </p>
                         <br />
                         <br />
                     </div>
                 </div>
             </div>
+            <Dialog open={!!selectedPadrinho} onOpenChange={handleClose}>
+                <DialogContent className="max-h-4xl p-6">
+                    {selectedPadrinho && (
+                        <div className="text-center">
+                            <h3 className="text-lg font-bold">{selectedPadrinho.nome}</h3>
+                            <Image
+                                src={selectedPadrinho.base64Foto}
+                                alt={selectedPadrinho.nome}
+                                width={300}
+                                height={900}
+                                className="mx-auto w-full object-contain rounded-t-lg border-2 border-[#d6b293] p-1 rounded-lg"
+                            />
+                            <p className="mx-auto w-full object-contain rounded-t-lg border-2 border-[#d6b293] p-1 rounded-lg mt-2">{selectedPadrinho.descricao}</p>
+                        </div>
+                    )}
+                </DialogContent>
+            </Dialog>
         </>
     );
 }
