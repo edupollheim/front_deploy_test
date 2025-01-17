@@ -4,7 +4,11 @@ import "./globals.css";
 import MenuBar from "@/app/components/MenuBar";
 import DividerGold from "@/app/components/divider";
 import { ThemeProvider } from 'next-themes'
+import Clarity from '@microsoft/clarity'
 
+const project_id = "pvfmqlyj3d"
+
+Clarity.init(project_id)
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
