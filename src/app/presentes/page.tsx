@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AlertCircle } from 'lucide-react';
 
-const BACKEND_URL = 'http://192.168.15.10:3001/api';
+const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
 
 type Present = {
   id: number;
