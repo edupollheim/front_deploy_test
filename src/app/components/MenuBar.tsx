@@ -18,6 +18,10 @@ const MenuBar = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
     const menuLinkClasses =
         "menuLink flex flex-col items-center text-gray-800 dark:text-gray-200 hover:filter hover:invert-50 hover:sepia hover:saturate-500 hover:hue-rotate-190";
 
@@ -43,13 +47,13 @@ const MenuBar = () => {
             </div>
 
             <ul
-                className={`flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 px-0 md:px-20 ${
+                className={`flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 px-0 md:px-20 transition-all duration-300 ${
                     isOpen ? "block" : "hidden"
                 } md:flex`}
             >
                 {menuItems.map((item, index) => (
                     <li key={index} className="menuItem">
-                        <Link href={item.href} className={menuLinkClasses}>
+                        <Link href={item.href} className={menuLinkClasses} onClick={closeMenu}>
                             <item.icon className="w-6 h-6" />
                             <span>{item.label}</span>
                         </Link>
