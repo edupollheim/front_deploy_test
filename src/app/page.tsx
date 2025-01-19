@@ -7,6 +7,8 @@ import fotoCasalPC from './images/foto1_.webp';
 import fotoCasal2PC from './images/foto2_.webp';
 import fotoCasal2Cel from './images/foto2.webp';
 import DividerGold from "@/app/components/divider";
+import Anuncios from './components/anuncios';
+import Manual from './components/manual';
 
 export default function Home() {
     const targetDate = new Date(2025, 6, 6, 10, 0, 0); // 06 de Julho de 2025 às 10:00
@@ -26,7 +28,7 @@ export default function Home() {
 
     return (
         <>
-            <section className="flex-1 min-h-screen h-screen pt-4 relative mb-5 mt-[-5.5rem] -z-10">
+            <section className="flex-1 min-h-screen h-screen pt-4 relative mt-[-5.5rem] -z-10">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
@@ -60,7 +62,7 @@ export default function Home() {
 
             <DividerGold />
 
-            <section className="flex-1 min-h-screen relative parent-container mt-5">
+            <section className="flex-1 min-h-screen relative parent-container">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
@@ -80,6 +82,18 @@ export default function Home() {
                     <h2 className="countdown-title mb-2 letter text-[#d6b293]">Contagem regressiva</h2>
                     <Countdown targetDate={targetDate} />
                 </div>
+            </section>
+
+            <DividerGold />
+
+            <section className="flex-1 min-h-screen relative parent-container">
+                <Anuncios />
+            </section>
+
+            <DividerGold />
+
+            <section className='bg-[#fffaf6]'>
+                <Manual />
             </section>
         </>
     );

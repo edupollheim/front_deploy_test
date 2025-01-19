@@ -47,7 +47,7 @@ const MenuBar = () => {
             </div>
 
             <ul
-                className={`flex flex-col md:flex-row justify-between items-center gap-4 md:gap-10 px-0 md:px-20 transition-all duration-300 ${
+                className={`flex flex-col md:flex-row justify-between items-center gapfd-4 md:gap-10 px-0 md:px-20 transition-all duration-300 ${
                     isOpen ? "block" : "hidden"
                 } md:flex`}
             >
