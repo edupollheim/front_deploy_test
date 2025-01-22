@@ -48,21 +48,21 @@ const Countdown = ({ targetDate }: CountdownProps) => {
     return (
         <div className={`countdown ${isMobile ? 'mobile' : ''}`}>
             <div className={`time-container ${isMobile ? 'mobile-time-container' : ''}`}>
-                <div className="flip-down">
+                <div className="flip-down flex flex-col justify-center items-center">
                     <span className="flip-item">{formatTime(timeLeft.days)}</span>
-                    <span className="time-label">Dias</span>
+                    <span className="time-label"> Dias</span>
                 </div>
-                <div className="flip-down">
+                <div className="flip-down flex flex-col justify-center items-center">
                     <span className="flip-item">{formatTime(timeLeft.hours)}</span>
-                    <span className="time-label">Horas</span>
+                    <span className="time-label"> Horas</span>
                 </div>
-                <div className="flip-down">
+                <div className="flip-down flex flex-col justify-center items-center">
                     <span className="flip-item">{formatTime(timeLeft.minutes)}</span>
-                    <span className="time-label">Minutos</span>
+                    <span className="time-label"> Minutos</span>
                 </div>
-                <div className="flip-down">
+                <div className="flip-down flex flex-col justify-center items-center">
                     <span className="flip-item">{formatTime(timeLeft.seconds)}</span>
-                    <span className="time-label">Segundos</span>
+                    <span className="time-label"> Segundos</span>
                 </div>
             </div>
         </div>

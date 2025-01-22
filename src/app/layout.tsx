@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import MenuBar from "@/app/components/MenuBar";
-import DividerGold from "@/app/components/divider";
 import { ThemeProvider } from 'next-themes'
-import Clarity from '@microsoft/clarity'
 import Script from "next/script";
 
-const project_id = "pvfmqlyj3d"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,7 +38,6 @@ export default function RootLayout({
           enableSystem
       >
         <MenuBar />
-        <DividerGold />
         {children}
         <Script id="clarity-script" strategy="afterInteractive">
           {`    (function(c,l,a,r,i,t,y){

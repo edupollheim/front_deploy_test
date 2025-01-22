@@ -1,14 +1,16 @@
 .titulo{
     font-family: 'Fleur De Leah';
-    font-size: 5rem;
 }
 
 .font-letras{
-    font-family: 'Italiana';
+    font-family: 'Inter';
+    font-weight: 100;
 }
 
 .estilo-sub-titulo{
     font-size: 1.5rem;
+    font-family: 'Inter';
+    font-weight: 400;
 }
 
 .estilo-texto{

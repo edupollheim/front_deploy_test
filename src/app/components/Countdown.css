@@ -1,3 +1,4 @@
+
 .countdown {
     display: flex;
     flex-direction: column;
@@ -22,7 +23,7 @@
     flex: 1; /* Cada item ocupa espaço igual */
     min-width: 130px; /* Largura mínima para evitar que fiquem muito pequenos */
     margin: 0 10px; /* Espaçamento horizontal entre os itens */
-    background: rgba(255, 189, 89, 0.8); /* Fundo dourado translúcido */
+    background: rgba(214, 178, 147, 0.3); /* Fundo dourado translúcido */
     border-radius: 10px; /* Bordas arredondadas */
     padding: 10px; /* Espaçamento interno */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
@@ -30,13 +31,15 @@
 
 .flip-item {
     font-size: 3rem; /* Tamanho maior para melhor legibilidade */
-    color: #3f3f3f; /* Cor do texto, um tom mais escuro */
-    font-family: 'Playfair Display', serif; /* Fonte elegante */
+    color: rgba(214, 178, 147, 1); /* Cor do texto, um tom mais escuro */
+    font-family: 'Inter', serif; /* Fonte elegante */
+    font-weight: 100;
 }
 
 .time-label {
     font-size: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
-    color: #7a7a7a; /* Cor do rótulo, um tom mais suave */
+    color: #808080; /* Cor do rótulo, um tom mais suave */
+    font-family: 'Raleway';
 }
 
 /* Estilos específicos para dispositivos móveis */
