@@ -4,6 +4,7 @@ import "./globals.css";
 import MenuBar from "@/app/components/MenuBar";
 import { ThemeProvider } from 'next-themes'
 import Script from "next/script";
+import ScrollToTop from "./components/backTop";
 
 
 const geistSans = localFont({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ScrollToTop />
       <ThemeProvider
           attribute="class"
           defaultTheme="system"

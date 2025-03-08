@@ -1,10 +1,11 @@
 .titulo{
-    font-family: 'Fleur De Leah';
+    font-family: 'Luxurious Script';
 }
 
 .font-letras{
     font-family: 'Inter';
     font-weight: 100;
+    color: #000;
 }
 
 .estilo-sub-titulo{

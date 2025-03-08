@@ -22,7 +22,7 @@ const MenuBar = () => {
     };
 
     const menuLinkClasses =
-        "menuLink flex flex-col items-center text-gray-800 dark:text-gray-800 hover:filter hover:invert-50 hover:sepia hover:saturate-500 hover:hue-rotate-190";
+        "menuLink flex flex-col items-center text-gray-800  hover:filter hover:invert-50 hover:sepia hover:saturate-500 hover:hue-rotate-190";
 
     const menuItems = [
         { href: "/", label: "Home", icon: HouseIcon },
@@ -34,12 +34,12 @@ const MenuBar = () => {
     ];
 
     return (
-        <nav className="p-4 bg-gray-100 dark:bg-gray-100">
+        <nav className="p-4 bg-gray-100">
             <div className="flex justify-between items-center md:hidden">
                 <button
                     onClick={toggleMenu}
                     aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-                    className="text-gray-800 dark:text-gray-800 focus:outline-none opacity-100"
+                    className="text-gray-800  focus:outline-none opacity-100"
                 >
                     {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                 </button>

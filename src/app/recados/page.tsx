@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { MessageSquare, Send, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
-import { useTheme } from "next-themes";
 
 type Message = {
     id: number;
@@ -16,7 +15,7 @@ type Message = {
     createdAt: string;
 };
 
-const BACKEND_URL = "https://casamento.pollheim.com.br/api";
+const BACKEND_URL = "http://localhost:3001/api";
 
 const Guestbook = () => {
     const [name, setName] = useState<string>("");
@@ -26,7 +25,6 @@ const Guestbook = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const { toast } = useToast();
-    const { theme } = useTheme();
 
     const loadMessages = async () => {
         setIsLoading(true);
@@ -92,19 +90,16 @@ const Guestbook = () => {
     }, []);
 
     return (
-        <div className={`min-h-screen p-4 md:p-8
-            ${theme === 'dark'
-            ? 'bg-gradient-to-br from-gray-900 to-gray-800'
-            : 'bg-gradient-to-br from-blue-50 to-indigo-50'
-        }`}
-        >
-            <div className="max-w-3xl mx-auto space-y-8">
-                <Card className="border-none shadow-lg dark:bg-gray-800">
+        <div className="bg-[#fffaf6]">
+            <div className="max-w-3xl mx-auto space-y-8 py-8 min-h-screen bg-[#fffaf6]">
+                <Card className="border-none shadow-lg border border-gray-200 bg-white">
                     <CardHeader>
-                        <CardTitle className="text-3xl font-bold text-center flex items-center justify-center gap-2 dark:text-white">
-                            <MessageSquare className="w-8 h-8" />
+                        <CardTitle className="text-[4rem] lg:text-[5rem] font-thin text-center flex items-center justify-center gap-2 text-[#d6b293] letter" style={{ fontFamily: "Luxurious Script" }}>
                             Livro de Recados
                         </CardTitle>
+                        <p className="text-muted-foreground font-thin text-center" style={{ fontFamily: 'Inter' }}>
+                            Deixe aqui seu recado para os noivos!💌
+                        </p>
                     </CardHeader>
                     <CardContent>
                         {error && (
@@ -115,8 +110,8 @@ const Guestbook = () => {
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium dark:text-gray-300">
-                                    Seu nome
+                                <label htmlFor="name" className="text-sm font-thin font-['Inter']">
+                                    Seu nome:
                                 </label>
                                 <Input
                                     type="text"
@@ -125,14 +120,14 @@ const Guestbook = () => {
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Digite seu nome"
                                     required
-                                    className="w-full"
+                                    className="w-full font-thin font-['Inter'] border border-gray-200"
                                     disabled={isSubmitting}
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium dark:text-gray-300">
-                                    Sua mensagem
+                                <label htmlFor="message" className="text-sm font-thin font-['Inter']">
+                                    Sua mensagem:
                                 </label>
                                 <Textarea
                                     id="message"
@@ -140,14 +135,14 @@ const Guestbook = () => {
                                     onChange={(e) => setMessage(e.target.value)}
                                     placeholder="Escreva seu recado..."
                                     required
-                                    className="w-full min-h-[120px]"
+                                    className="w-full min-h-[120px] font-thin font-['Inter'] border border-gray-200"
                                     disabled={isSubmitting}
                                 />
                             </div>
 
                             <Button
                                 type="submit"
-                                className="w-full md:w-auto"
+                                className="w-full md:w-auto font-extralight font-['Inter']"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
@@ -157,7 +152,7 @@ const Guestbook = () => {
                                     </>
                                 ) : (
                                     <>
-                                        <Send className="w-4 h-4 mr-2" />
+                                        <Send className="w-4 h-4 mr-2 " />
                                         Enviar Recado
                                     </>
                                 )}
@@ -166,34 +161,34 @@ const Guestbook = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="border-none shadow-lg dark:bg-gray-800">
+                <Card className="border-none shadow-lg border border-gray-200 bg-white">
                     <CardHeader>
-                        <CardTitle className="text-2xl font-semibold dark:text-white">
+                        <CardTitle className="text-2xl font-thin font-['Inter'] text-[#d6b293]">
                             Recados Recentes
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         {isLoading ? (
                             <div className="flex items-center justify-center py-8">
-                                <Loader2 className="w-8 h-8 animate-spin text-indigo-600 dark:text-indigo-400" />
+                                <Loader2 className="w-8 h-8 animate-spin text-[#d6b293]" />
                             </div>
                         ) : messages.length === 0 ? (
-                            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+                            <div className="text-center py-8 text-gray-500  font-thin font-['Inter']">
                                 <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-20" />
                                 <p>Nenhum recado por enquanto...</p>
                             </div>
                         ) : (
                             <div className="space-y-4">
                                 {messages.map((msg) => (
-                                    <Card key={msg.id} className="border-none transition-colors dark:bg-gray-700/50 hover:dark:bg-gray-700/70">
+                                    <Card key={msg.id} className="border-none transition-colors">
                                         <CardContent className="p-4">
                                             <div className="flex items-start justify-between">
-                                                <h3 className="font-semibold dark:text-white">{msg.name}</h3>
-                                                <time className="text-sm text-gray-500 dark:text-gray-400">
+                                                <h3 className="font-semibold"></h3>
+                                                <time className="text-sm text-gray-500">
                                                     {new Date(msg.createdAt).toLocaleDateString()}
                                                 </time>
                                             </div>
-                                            <p className="mt-2 dark:text-gray-300 whitespace-pre-wrap">{msg.message}</p>
+                                            <p className="mt-2  whitespace-pre-wrap">{msg.message}</p>
                                         </CardContent>
                                     </Card>
                                 ))}

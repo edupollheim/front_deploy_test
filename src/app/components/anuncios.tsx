@@ -1,7 +1,7 @@
 import './anuncios.css';
 
 const Anuncios = () => {
-    const title = "Anúncios";
+    const title = "Informações";
     const textos = {
       anuncio1: {
         title: "Cerimônia",
@@ -14,18 +14,22 @@ const Anuncios = () => {
     };
   
     return (
-      <div className="flex justify-between items-center h-screen p-6 bg-[#fffaf6] dark:bg-[#1a1a1a]">
+      <div className="flex justify-between items-center h-screen p-6 bg-[#fffaf6]">
         {/* Coluna de anúncios à esquerda */}
         <div className="flex-1 pr-6 pt-2">
-          <h1 className="text-[3.5rem] font-thin titulo mt-[-4.5rem] text-[#d6b293] text-center">{title}</h1>
+          <h1 className="text-[4rem] font-thin titulo mt-[-4.5rem] text-[#d6b293] text-center lg:text-[10rem] letter">{title}</h1>
   
           {/* Renderizando os anúncios */}
           {Object.keys(textos).map((key) => {
             const anuncio = textos[key as keyof typeof textos];
             return (
-              <div key={key} className="mt-6 font-letras">
-                <h2 className="text-2xl font-semibold estilo-sub-titulo text-[#d6b293]">{anuncio.title}</h2>
-                <p className="mt-2 text-lg estilo-texto">{anuncio.text}</p>
+              <div key={key} className="mt-6 
+              font-letras   
+              lg:flex lg:flex-col lg:items-center lg:justify-center lg:text-center 
+              sm:text-center sm:items-center sm:justify-center
+              md:text-center md:items-center md:justify-center">
+                <h2 className="text-2xl font-semibold estilo-sub-titulo text-[#d6b293] justify-center items-center flex">{anuncio.title}</h2>
+                <p className="mt-2 text-lg estilo-texto max-w-lg text-center">{anuncio.text}</p>
               </div>
             );
           })}

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,79 +8,66 @@ import { Button } from '@/components/ui/button';
 const SobreEvento = () => {
     const openGoogleMaps = () => {
         window.open(
-            'https://maps.app.goo.gl/NNrbXGPsFADVTRaw6', 
+            'https://maps.app.goo.gl/NNrbXGPsFADVTRaw6',
             '_blank',
             'noopener,noreferrer'
         );
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="grid md:grid-cols-2 gap-8">
-                {/* Left Column: Event Details */}
-                <Card className="bg-white shadow-lg rounded-lg overflow-hidden h-full">
-                    <CardHeader className="bg-gray-50 border-b">
-                        <CardTitle className="text-2xl font-bold text-[#a674c2] font-thin text-[3rem]" style={{ fontFamily: "'Fleur De Leah'" }}>
-                            Cerimônia e Recepção
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-6 space-y-4 font-['Inter'] font-thin">
-                        <div className="text-[#844fa0] space-y-4">
+        <div className="bg-[#fffaf6] min-h-screen flex items-center justify-center py-10 lg:py-20">
+            <div className="container mx-auto px-6 lg:px-24 flex flex-col gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    {/* Detalhes do Evento */}
+                    <Card className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
+                        <CardHeader className="bg-gray-100 border border-gray-200 py-2 text-center">
+                            <CardTitle 
+                                className="text-[3rem] lg:text-[5rem] font-thin text-[#d6b293] letter" 
+                                style={{ fontFamily: "'Luxurious Script'" }}
+                            >
+                                Cerimônia e Recepção
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-6 space-y-4 text-lg lg:text-xl text-[#637c8b] font-thin font-['Inter']">
                             <p className="text-justify">
-                                Estamos ansiosos para ter todos vocês conosco na ocasião em que nossa união será abençoada diante de Deus! A cerimônia será breve e seremos muito pontuais. Contamos com a presença de cada um de vocês!
+                                Estamos ansiosos para compartilhar esse momento especial com vocês! Nossa cerimônia será breve e pontual, seguida de uma recepção cheia de alegria e amor no mesmo local. Contamos com sua presença!
                             </p>
-                            <p className="text-justify">
-                                Os noivos estão super empolgados e te convidam para a recepção após a cerimônia no dia 06 de julho de 2025, e adivinha? É no mesmo lugar! A festa começa às 12h. Não vai ficar de fora dessa, né?!
-                            </p>
-                        </div>
+                            <div className="mt-6">
+                                <h3 className="text-2xl font-light text-[#d6b293]">Detalhes do Evento</h3>
+                                <ul className="text-[#d6b293] space-y-1">
+                                    <li><strong>Data:</strong> 06 de julho de 2025</li>
+                                    <li><strong>Cerimônia:</strong> 10:00</li>
+                                    <li><strong>Recepção:</strong> 12:00</li>
+                                </ul>
+                            </div>
+                        </CardContent>
+                    </Card>
 
-                        <div className="bg-gray-100 rounded-lg p-4">
-                            <h3 className="font-bold text-lg mb-3 text-[#a674c2]">Detalhes do Evento:</h3>
-                            <ul className="space-y-2 text-[#a674c2]">
-                                <li className="flex items-center text-[#844fa0]">
-                                    <span className="font-semibold mr-2 text-[#a674c2]">Data:</span>
-                                    06 de julho de 2025
-                                </li>
-                                <li className="flex items-center text-[#844fa0]">
-                                    <span className="font-semibold mr-2 text-[#a674c2]">Cerimônia:</span>
-                                    10h
-                                </li>
-                                <li className="flex items-center text-[#844fa0]">
-                                    <span className="font-semibold mr-2 text-[#a674c2]">Recepção:</span>
-                                    12h
-                                </li>
-                            </ul>
+                    {/* Localização */}
+                    <div className="flex flex-col items-center text-center">
+                        <h2 className="text-3xl text-[#d6b293] flex items-center gap-3 lg:text-4xl font-['Inter'] font-extralight">
+                            <MapPin className="w-8 h-8 lg:w-10 lg:h-10 text-[#d6b293] font-['Inter']" />
+                            Sítio Paiol Velho
+                        </h2>
+                        <p className="text-lg text-[#637c8b] mt-2 lg:text-2xl font-['Inter'] font-thin">
+                            Estr. do Oeste, 4025 - Pirabeiraba, Joinville - SC
+                        </p>
+                        <div className="w-full mt-6 rounded-xl overflow-hidden shadow-xl lg:h-[400px]">
+                            <iframe
+                                className="w-full h-80 lg:h-full border-0"
+                                allowFullScreen
+                                title="Local do Evento"
+                                src="https://www.google.com/maps/embed/v1/place?q=S%C3%ADtio%20Paiol%20Velho%2C%204025%20Pirabeiraba%2C%20Joinville%2C%20SC&key=AIzaSyAIlmo6MsJHqZhSgK9f6adsCCklGoQRAqM"
+                            ></iframe>
                         </div>
-                    </CardContent>
-                </Card>
-
-                {/* Right Column: Map */}
-                {/* Título do local no topo */}
-                <div className="text-center mb-8 font-['Inter'] font-thin">
-                    <h1 className="text-3xl text-[#a674c2] flex items-center justify-center" style={{ fontWeight: 400 }}>
-                        <MapPin className="w-8 h-8 text-[#a674c2] mr-3" />
-                        Sítio Paiol Velho
-                    </h1>
-                    <p className="text-lg text-[#a674c2] mt-2">
-                        Estr. do Oeste, 4025 - Pirabeiraba, Joinville - SC
-                    </p>
-                </div>
-                <div className="space-y-4">
-                    <div className="rounded-lg overflow-hidden shadow-lg">
-                        <iframe
-                            className="w-full h-96 border-0"
-                            allowFullScreen
-                            title="Local do Evento"
-                            src="https://www.google.com/maps/embed/v1/place?q=S%C3%ADtio%20Paiol%20Velho%2C%204025%20Pirabeiraba%2C%20Joinville%2C%20SC&key=AIzaSyAIlmo6MsJHqZhSgK9f6adsCCklGoQRAqM"
-                        ></iframe>
+                        <Button
+                            onClick={openGoogleMaps}
+                            className="font-extralight mt-6 lg:mt-10 flex items-center gap-2 font-['Inter] min-w-full hover:bg-gray-200 text-[#637c8b]"
+                        >
+                            <Navigation className="w-6 h-6 lg:w-8 lg:h-8" />
+                            Abrir no Google Maps
+                        </Button>
                     </div>
-                    <Button 
-                        onClick={openGoogleMaps}
-                        className="w-full h-12 flex items-center justify-center gap-2 bg-[#a674c2] hover:bg-[#844fa0] text-white"
-                    >
-                        <Navigation className="w-5 h-5" />
-                        Abrir no Google Maps
-                    </Button>
                 </div>
             </div>
         </div>

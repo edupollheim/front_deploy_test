@@ -13,19 +13,21 @@ const Manual = () => {
     { text: 'Não faça comentários negativos!', icon: <NoSymbolIcon className="w-6 h-6 text-[#d6b293]" /> },
     { text: 'Branco é a cor da noiva! Cuide com cores muito claras como bege ou off white também!', icon: <HandRaisedIcon className="w-12 h-12 text-[#d6b293]" /> },
     { text: 'Divirta-se muito!', icon: <MusicalNoteIcon className="w-6 h-6 text-[#d6b293]" /> },
-    { text: 'Na cerimônia, pedimos que não use o celular, nossos fotógrafos irão cuidar disso! Mas na festa, tire fotos à vontade e compartilhe com a gente pelo app: Wedshots', icon: <CameraIcon className="w-20 h-20 text-[#d6b293]" /> },
     { text: 'Não saia sem se despedir dos noivos!', icon: <UsersIcon className="w-6 h-6 text-[#d6b293]" /> },
+    { text: 'Na cerimônia, pedimos que não use o celular, nossos fotógrafos irão cuidar disso! Mas na festa, tire fotos à vontade e compartilhe com a gente pelo app: Wedshots', icon: <CameraIcon className="w-20 h-20 text-[#d6b293]" /> },
   ];
 
   return (
     <div className="p-6">
-      <h1 className="text-[3.5rem] font-thin text-center mb-6 text-[#d6b293]" style={{fontFamily: "Fleur De Leah"}}>{title}</h1>
-      <div className="flex flex-wrap gap-4">
+      <div className="text-[3rem] md:text-[5rem] lg:text-[10rem]">
+        <h1 className="font-thin text-center mb-6 text-[#d6b293] letter" style={{fontFamily: "Luxurious Script"}}>{title}</h1>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:max-w-[80rem] lg:mx-auto">
         {rules.map((rule, index) => (
-          <div key={index} className="w-full sm:w-1/2 md:w-1/3">
-            <div className="flex items-center justify-start p-4 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-300 dark:border-gray-600">
+          <div key={index}>
+            <div className="flex items-center justify-start p-4 bg-gray-100  rounded-lg border border-gray-300  lg:min-h-[7rem] text-black">
               {rule.icon} {/* Ícone da regra */}
-              <span className="ml-3 font-['Inter'] font-thin">{rule.text}</span> {/* Texto da regra */}
+              <span className="ml-3 font-['Inter'] font-thin text-[1rem]">{rule.text}</span> {/* Texto da regra */}
             </div>
           </div>
         ))}

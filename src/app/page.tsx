@@ -28,7 +28,7 @@ export default function Home() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const monogramStyles = "text-[#d6b293] text-[2rem] md:text-8xl font-light tracking-wide hover:text-[#e6c3a3] transition-colors font-['Raleway'] -mt-1";
+    const monogramStyles = "text-[#d6b293] text-[2rem] md:text-8xl font-light tracking-wide hover:text-[#e6c3a3] transition-colors -mt-1";
 
     return (
         <>
@@ -71,19 +71,27 @@ export default function Home() {
 
                 <div className="relative mt-[5.5rem] md:mt-[8rem] flex justify-start md:justify-center items-center h-2/3">
                     <div className="grid grid-cols-[auto_1fr] gap-12 w-full px-8 md:px-16 animate-fade-in">
-                        <div className="flex flex-col justify-center items-start md:items-center gap-0 ml-[-4rem] md:ml-0">
+
+                        {/* Seção dos Números */}
+                        <div className="sm:flex sm:flex-col justify-center items-start md:items-center gap-0 ml-[-4rem] md:ml-0 lg:flex-row lg:justify-center ">
                             <h2
                                 className="text-[#d6b293] text-[13rem] md:text-[18rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none"
                                 style={{ fontFamily: "Inter", fontWeight: 100 }}
                             >
                                 06
                             </h2>
+                            <span className="hidden lg:block text-[#d6b293] text-[5rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none">
+                                .
+                            </span>
                             <h2
                                 className="text-[#d6b293] text-[13rem] md:text-[18rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none"
                                 style={{ fontFamily: "Inter", fontWeight: 100 }}
                             >
                                 07
                             </h2>
+                            <span className="hidden lg:block text-[#d6b293] text-[5rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none">
+                                .
+                            </span>
                             <h2
                                 className="text-[#d6b293] text-[13rem] md:text-[18rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none"
                                 style={{ fontFamily: "Inter", fontWeight: 100 }}
@@ -92,25 +100,26 @@ export default function Home() {
                             </h2>
                         </div>
 
-                        <div className="flex flex-col items-end md:items-start gap-2 md:pl-24 pt-12">
-                            <div className="flex flex-col items-center gap-4">
-                                <span className={monogramStyles}>E</span>
+                        {/* Seção do Monograma */}
+                        <div className="flex flex-col items-end md:items-start gap-2 md:pl-24 pt-12 lg:flex-row lg:gap-4 lg:pt-0 lg:items-center lg:justify-center">  
+                            <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-4 lg:items-center">
+                                <span className={monogramStyles} style={{fontFamily: "Luxurious Script"}}>E</span>
                                 <HeartIcon className={`${monogramStyles} w-6 h-6 md:w-24 md:h-24`} />
-                                <span className={monogramStyles}>J</span>
+                                <span className={monogramStyles} style={{fontFamily: "Luxurious Script"}}>J</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
+
                 <div className="absolute bottom-10 w-full flex justify-center items-center text-center px-4">
                     <h1
-                        className="text-[#d6b293] max-w-screen-md animate-fade-up"
+                        className="text-[#d6b293] max-w-screen-md lg:max-w-prose animate-fade-up sm:text-[1rem] md:text-[1.5rem] lg:text-[2rem] font-light tracking-wider"
                         style={{
                             fontFamily: "Inter",
-                            fontSize: '1rem',
-                            lineHeight: '1rem',
                             letterSpacing: '0.1em',
-                            fontWeight: 100
+                            fontWeight: 300
                         }}
                     >
                         Vamos nos casar! Estamos preparando tudo com muito carinho para
@@ -133,25 +142,24 @@ export default function Home() {
                 <div
                     className="absolute inset-0"
                     style={{
-                        boxShadow: 'inset 0 0 600px rgba(0, 0, 0, 1)',
                         zIndex: -1,
                     }}
                 ></div>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="text-[3.5rem] font-thin mb-2 letter text-[#d6b293]">Contagem regressiva</h2>
+                    <h2 className="text-[4rem] md:text-[5rem] lg:text-[10rem] font-extralight mb-2 letter text-[#d6b293]">Contagem regressiva</h2>
                     <Countdown targetDate={targetDate} />
                 </div>
             </section>
 
             <DividerGold />
 
-            <section className="flex-1 min-h-screen relative parent-container">
+            <section className="flex-1 min-h-screen relative parent-container  bg-[#fffaf6]">
                 <Anuncios />
             </section>
 
             <DividerGold />
 
-            <section className='bg-[#fffaf6] dark:bg-[#1a1a1a]'>
+            <section className='bg-[#fffaf6] '>
                 <Manual />
             </section>
         </>
