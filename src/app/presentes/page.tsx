@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AlertCircle, Loader } from 'lucide-react';
 
-const BACKEND_URL = 'http://localhost:3001/api';
+const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
 
 interface Present {
   id: number;
