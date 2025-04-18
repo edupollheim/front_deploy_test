@@ -33,10 +33,10 @@ export default function Padrinhos() {
             <h2 className="text-[4rem] lg:text-[6rem] font-thin text-center mb-8 pt-4 text-[#d6b293] letter" style={{ fontFamily: "'Luxurious Script'" }}>
                 Nossos Padrinhos
             </h2>
-            <div className="container mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <div className="container mx-auto max-w-5xl px-4">
+                <div className="grid grid-cols-1 lg:grid-cols-1 gap-24">
                     <div className="flex justify-center items-center">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
                             {padrinhos.map((padrinho: any) => (
                                 <Card
                                     key={padrinho.id}
@@ -59,7 +59,7 @@ export default function Padrinhos() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed space-y-4 px-6 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
+                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
                         <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 400, fontFamily: "'Luxurious Script'" }}>
                             Aos nossos amados padrinhos:
                         </h2>
