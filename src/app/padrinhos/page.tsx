@@ -36,7 +36,7 @@ export default function Padrinhos() {
             <div className="container mx-auto max-w-5xl px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-1 gap-24">
                     <div className="flex justify-center items-center">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 w-full">
                             {padrinhos.map((padrinho: any) => (
                                 <Card
                                     key={padrinho.id}
