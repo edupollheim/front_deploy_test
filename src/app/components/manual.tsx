@@ -14,7 +14,7 @@ const Manual = () => {
     { text: 'Branco é a cor da noiva! Cuide com cores muito claras como bege ou off white também!', icon: <HandRaisedIcon className="w-12 h-12 text-[#d6b293]" /> },
     { text: 'Divirta-se muito!', icon: <MusicalNoteIcon className="w-6 h-6 text-[#d6b293]" /> },
     { text: 'Não saia sem se despedir dos noivos!', icon: <UsersIcon className="w-6 h-6 text-[#d6b293]" /> },
-    { text: 'Na cerimônia, pedimos que não use o celular, nossos fotógrafos irão cuidar disso! Mas na festa, tire fotos à vontade e compartilhe com a gente pelo app: Wedshots', icon: <CameraIcon className="w-20 h-20 text-[#d6b293]" /> },
+    { text: 'Na cerimônia, pedimos que seja discreto ao tirar fotos, para não atrapalhar nossos fotógrafos. Na festa fique a vontade e compartilhe tudo com a gente no app "Wedshots"!', icon: <CameraIcon className="w-20 h-20 text-[#d6b293]" /> },
   ];
 
   return (

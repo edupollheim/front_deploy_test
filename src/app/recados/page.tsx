@@ -8,14 +8,15 @@ import { MessageSquare, Send, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
 
+
 type Message = {
     id: number;
     name: string;
     message: string;
     createdAt: string;
 };
-
-const BACKEND_URL = "https://casamento.pollheim.com.br/api";
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
 
 const Guestbook = () => {
     const [name, setName] = useState<string>("");
@@ -120,7 +121,7 @@ const Guestbook = () => {
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Digite seu nome"
                                     required
-                                    className="w-full font-thin font-['Inter'] border border-gray-200"
+                                    className="w-full font-thin font-['Inter'] border border-gray-200 text-black"
                                     disabled={isSubmitting}
                                 />
                             </div>
@@ -135,14 +136,14 @@ const Guestbook = () => {
                                     onChange={(e) => setMessage(e.target.value)}
                                     placeholder="Escreva seu recado..."
                                     required
-                                    className="w-full min-h-[120px] font-thin font-['Inter'] border border-gray-200"
+                                    className="w-full min-h-[120px] font-thin font-['Inter'] border border-gray-200 text-black"
                                     disabled={isSubmitting}
                                 />
                             </div>
 
                             <Button
                                 type="submit"
-                                className="w-full md:w-auto font-extralight font-['Inter']"
+                                className="w-full md:w-auto font-extralight font-['Inter'] hover:bg-gray-200"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
@@ -152,7 +153,7 @@ const Guestbook = () => {
                                     </>
                                 ) : (
                                     <>
-                                        <Send className="w-4 h-4 mr-2 " />
+                                        <Send className="w-4 h-4 mr-2" />
                                         Enviar Recado
                                     </>
                                 )}
@@ -180,15 +181,15 @@ const Guestbook = () => {
                         ) : (
                             <div className="space-y-4">
                                 {messages.map((msg) => (
-                                    <Card key={msg.id} className="border-none transition-colors">
+                                    <Card key={msg.id} className="border-none transition-colors bg-gray-100 hover:bg-gray-200 hover:cursor-pointer">
                                         <CardContent className="p-4">
                                             <div className="flex items-start justify-between">
-                                                <h3 className="font-semibold"></h3>
+                                                <h3 className="font-semibold text-gray-500">{msg.name}</h3>
                                                 <time className="text-sm text-gray-500">
                                                     {new Date(msg.createdAt).toLocaleDateString()}
                                                 </time>
                                             </div>
-                                            <p className="mt-2  whitespace-pre-wrap">{msg.message}</p>
+                                            <p className="mt-2  whitespace-pre-wrap text-gray-500">{msg.message}</p>
                                         </CardContent>
                                     </Card>
                                 ))}

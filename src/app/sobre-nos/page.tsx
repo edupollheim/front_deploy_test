@@ -18,6 +18,10 @@ interface CarouselProps {
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
+
+
 const Carousel: React.FC<CarouselProps> = ({ images, currentIndex, setCurrentIndex }) => {
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -70,7 +74,7 @@ export default function SobreNos() {
     const fetchImages = async () => {
       try {
         setLoading(true); // Ativa o loading antes da requisição
-        const response = await axios.get("http://localhost:3001/api/photos");
+        const response = await axios.get(`${BACKEND_URL}/photos`);
         setImages(response.data);
       } catch (error) {
         console.error("Erro ao buscar imagens:", error);
@@ -138,7 +142,7 @@ export default function SobreNos() {
       </section>
       
       <Dialog open={!!selectedImage} onOpenChange={handleClose}>
-        <DialogContent className="p-0 max-w-[80vw] h-[80vh] flex items-center justify-center">
+        <DialogContent className="p-0 max-w-[80vw] h-[80vh] flex items-center justify-center bg-[#d6b293]/90">
           <DialogTitle></DialogTitle>
           {selectedImage && (
             <Carousel 

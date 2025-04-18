@@ -5,6 +5,10 @@ import "./style.css";
 import Image from "next/image";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
+
+
 export default function Padrinhos() {
     const [padrinhos, setPadrinhos] = useState([]);
     const [selectedPadrinho, setSelectedPadrinho] = useState<any>(null);
@@ -18,7 +22,7 @@ export default function Padrinhos() {
     };
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/padrinhos")
+        fetch(`${BACKEND_URL}/padrinhos`)
             .then((res) => res.json())
             .then((data) => setPadrinhos(data))
             .catch((err) => console.error("Erro ao buscar padrinhos:", err));
@@ -56,7 +60,7 @@ export default function Padrinhos() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-start text-lg leading-relaxed space-y-4 px-6 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
-                        <h2 className="text-3xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 400 }}>
+                        <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 400, fontFamily: "'Luxurious Script'" }}>
                             Aos nossos amados padrinhos:
                         </h2>
                         <p className="text-justify">

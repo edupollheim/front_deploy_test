@@ -73,7 +73,7 @@ export default function Home() {
                     <div className="grid grid-cols-[auto_1fr] gap-12 w-full px-8 md:px-16 animate-fade-in">
 
                         {/* Seção dos Números */}
-                        <div className="sm:flex sm:flex-col justify-center items-start md:items-center gap-0 ml-[-4rem] md:ml-0 lg:flex-row lg:justify-center ">
+                        <div className="sm:flex sm:flex-col justify-center items-start md:items-center gap-0 ml-[-4rem] md:ml-0 lg:flex-row lg:justify-center lg:pt-12">
                             <h2
                                 className="text-[#d6b293] text-[13rem] md:text-[18rem] font-light tracking-wider hover:text-[#e6c3a3] transition-colors leading-none"
                                 style={{ fontFamily: "Inter", fontWeight: 100 }}
@@ -101,11 +101,17 @@ export default function Home() {
                         </div>
 
                         {/* Seção do Monograma */}
-                        <div className="flex flex-col items-end md:items-start gap-2 md:pl-24 pt-12 lg:flex-row lg:gap-4 lg:pt-0 lg:items-center lg:justify-center">  
+                        <div
+                            className="
+                                flex flex-col items-end gap-2 pt-12
+                                md:items-start md:pl-24
+                                lg:flex-row lg:gap-4 lg:pt-0 lg:pb-[32rem] lg:items-center lg:pl-[24rem] lg:justify-center
+                            "
+                            >  
                             <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-4 lg:items-center">
-                                <span className={monogramStyles} style={{fontFamily: "Luxurious Script"}}>E</span>
-                                <HeartIcon className={`${monogramStyles} w-6 h-6 md:w-24 md:h-24`} />
                                 <span className={monogramStyles} style={{fontFamily: "Luxurious Script"}}>J</span>
+                                <HeartIcon className={`${monogramStyles} w-6 h-6 md:w-24 md:h-24 ml-5`} />
+                                <span className={monogramStyles} style={{fontFamily: "Luxurious Script"}}>E</span>
                             </div>
                         </div>
 
@@ -115,7 +121,7 @@ export default function Home() {
 
                 <div className="absolute bottom-10 w-full flex justify-center items-center text-center px-4">
                     <h1
-                        className="text-[#d6b293] max-w-screen-md lg:max-w-prose animate-fade-up sm:text-[1rem] md:text-[1.5rem] lg:text-[2rem] font-light tracking-wider"
+                        className="text-[#d6b293] max-w-screen-md lg:max-w-prose animate-fade-up sm:text-[1rem] md:text-[1.5rem] lg:text-[1.5rem] font-light tracking-wider"
                         style={{
                             fontFamily: "Inter",
                             letterSpacing: '0.1em',
@@ -146,7 +152,7 @@ export default function Home() {
                     }}
                 ></div>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="text-[4rem] md:text-[5rem] lg:text-[10rem] font-extralight mb-2 letter text-[#d6b293]">Contagem regressiva</h2>
+                    <h2 className="text-[4rem] md:text-[5rem] lg:text-[10rem] font-extralight mb-2 letter text-[#d6b293] leading-[8rem]">Contagem <br/> regressiva</h2>
                     <Countdown targetDate={targetDate} />
                 </div>
             </section>

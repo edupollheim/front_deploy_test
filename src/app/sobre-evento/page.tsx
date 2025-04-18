@@ -30,10 +30,10 @@ const SobreEvento = () => {
                         </CardHeader>
                         <CardContent className="p-6 space-y-4 text-lg lg:text-xl text-[#637c8b] font-thin font-['Inter']">
                             <p className="text-justify">
-                                Estamos ansiosos para compartilhar esse momento especial com vocês! Nossa cerimônia será breve e pontual, seguida de uma recepção cheia de alegria e amor no mesmo local. Contamos com sua presença!
+                                Estamos ansiosos para compartilhar esse momento especial com vocês! Nossa cerimônia será breve e pontual, seguida por um almoço no mesmo local. Contamos com sua presença!
                             </p>
-                            <div className="mt-6">
-                                <h3 className="text-2xl font-light text-[#d6b293]">Detalhes do Evento</h3>
+                            <div className="mt-8">
+                                <h3 className="text-2xl font-light text-[#d6b293] pt-4">Detalhes do Evento</h3>
                                 <ul className="text-[#d6b293] space-y-1">
                                     <li><strong>Data:</strong> 06 de julho de 2025</li>
                                     <li><strong>Cerimônia:</strong> 10:00</li>

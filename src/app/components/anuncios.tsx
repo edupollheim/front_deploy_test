@@ -9,7 +9,7 @@ const Anuncios = () => {
       },
       anuncio2: {
         title: "Recepção",
-        text: "Depois da cerimônia, teremos um almoço preparado com todo carinho, seguido por brincadeiras e atividades para manter o clima leve e divertido. Venha com energia para aproveitar cada momento conosco!",
+        text: "Depois da cerimônia, teremos um almoço preparado com todo carinho, seguido por brincadeiras para manter o clima leve e divertido. Venha com energia para aproveitar cada momento conosco!",
       },
     };
   
@@ -28,7 +28,7 @@ const Anuncios = () => {
               lg:flex lg:flex-col lg:items-center lg:justify-center lg:text-center 
               sm:text-center sm:items-center sm:justify-center
               md:text-center md:items-center md:justify-center">
-                <h2 className="text-2xl font-semibold estilo-sub-titulo text-[#d6b293] justify-center items-center flex">{anuncio.title}</h2>
+                <h2 className="text-2xl font-semibold estilo-sub-titulo text-[#d6b293] justify-center items-center flex">{anuncio.title.toUpperCase()}</h2>
                 <p className="mt-2 text-lg estilo-texto max-w-lg text-center">{anuncio.text}</p>
               </div>
             );

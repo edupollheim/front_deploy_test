@@ -4,11 +4,12 @@ import PIX from 'react-qrcode-pix';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AlertCircle, Loader } from 'lucide-react';
+import 'dotenv/config';
 
-const BACKEND_URL = 'https://casamento.pollheim.com.br/api';
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001/api';
 
 interface Present {
   id: number;
