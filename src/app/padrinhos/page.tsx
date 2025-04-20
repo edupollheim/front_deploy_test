@@ -59,17 +59,17 @@ export default function Padrinhos() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-start text-lg leading-relaxed space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
+                    <div className="flex flex-col justify-center items-center text-lg leading-tight space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
                         <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 400, fontFamily: "'Luxurious Script'" }}>
                             Aos nossos amados padrinhos:
                         </h2>
-                        <p className="text-justify">
+                        <p className="text-center max-w-xl">
                             Sentimos muita emoção por ter vocês ao nosso lado e por podermos compartilhar toda a alegria desta nova fase em nossas vidas: nosso casamento!
                         </p>
-                        <p className="text-justify">
+                        <p className="text-center max-w-xl">
                             A presença de vocês torna este momento ainda mais especial e memorável. Queremos que saibam que são parte essencial da nossa história.
                         </p>
-                        <p className="text-justify">
+                        <p className="text-center max-w-xl">
                             Vocês são exemplos de amizade, lealdade e companheirismo, e temos a sorte de contar com pessoas tão maravilhosas em nossas vidas.
                         </p>
                         <p className="mt-6 font-bold text-xl text-center text-[#d6b293]" style={{ fontWeight: 400 }}>
