@@ -75,8 +75,12 @@ export default function Home() {
             <h1 className="text-[4rem] lg:text-[6rem] font-thin tracking-tight text-[#d6b293] letter" style={{ fontFamily: 'Luxurious Script' }}>
               Lista de Presentes
             </h1>
-            <p className="text-muted-foreground font-thin" style={{ fontFamily: 'Inter' }}>
-              Escolha um presente especial para celebrar conosco
+            <p
+              className="text-muted-foreground font-thin max-w-xl mx-auto text-center"
+              style={{ fontFamily: 'Inter' }}
+            >
+              Caso queira nos presentear, preferimos contribuições em dinheiro.
+              Você também pode escolher um dos itens da nossa lista simbólica: todos os "presentes" serão convertidos em valor para nós, e podem ser pagos via Pix, cartão de crédito ou em dinheiro.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
