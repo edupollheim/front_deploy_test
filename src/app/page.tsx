@@ -152,7 +152,7 @@ export default function Home() {
                     }}
                 ></div>
                 <div className="flex flex-col items-center relative">
-                    <h2 className="text-[4rem] md:text-[5rem] lg:text-[10rem] font-extralight mb-2 letter text-[#d6b293] leading-[8rem]">Contagem <br/> regressiva</h2>
+                    <h2 className="text-[4rem] md:text-[5rem] lg:text-[10rem] font-light mb-2 letter text-[#d6b293] leading-[8rem]">Contagem <br/> regressiva</h2>
                     <Countdown targetDate={targetDate} />
                 </div>
             </section>

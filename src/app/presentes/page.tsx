@@ -91,7 +91,7 @@ export default function Home() {
                     <img src={present.image} alt={present.name} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
                   </div>
                   <CardTitle className="text-xl text-[#637c8b]">{present.name}</CardTitle>
-                  <CardDescription className="font-['Inter'] font-extralight text-[#637c8b]">{present.description}</CardDescription>
+                  <CardDescription className="font-['Inter'] font-light text-[#637c8b]">{present.description}</CardDescription>
                 </CardHeader>
                 <CardContent className='text-[#637c8b]'>
                   <div className="text-2xl font-bold]">
@@ -99,7 +99,7 @@ export default function Home() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full font-extralight font-['Inter'] text-[#637c8b] hover:bg-gray-200" size="lg" onClick={() => setSelectedPresent(present)}>
+                  <Button className="w-full font-light font-['Inter'] text-[#637c8b] hover:bg-gray-200" size="lg" onClick={() => setSelectedPresent(present)}>
                     Presentear
                   </Button>
                 </CardFooter>

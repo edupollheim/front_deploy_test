@@ -143,7 +143,7 @@ const Guestbook = () => {
 
                             <Button
                                 type="submit"
-                                className="w-full md:w-auto font-extralight font-['Inter'] hover:bg-gray-200"
+                                className="w-full md:w-auto font-light font-['Inter'] hover:bg-gray-200"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (

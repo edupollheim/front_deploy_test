@@ -45,7 +45,7 @@ const SobreEvento = () => {
 
                     {/* Localização */}
                     <div className="flex flex-col items-center text-center">
-                        <h2 className="text-3xl text-[#d6b293] flex items-center gap-3 lg:text-4xl font-['Inter'] font-extralight">
+                        <h2 className="text-3xl text-[#d6b293] flex items-center gap-3 lg:text-4xl font-['Inter'] font-light">
                             <MapPin className="w-8 h-8 lg:w-10 lg:h-10 text-[#d6b293] font-['Inter']" />
                             Sítio Paiol Velho
                         </h2>
@@ -62,7 +62,7 @@ const SobreEvento = () => {
                         </div>
                         <Button
                             onClick={openGoogleMaps}
-                            className="font-extralight mt-6 lg:mt-10 flex items-center gap-2 font-['Inter] min-w-full hover:bg-gray-200 text-[#637c8b]"
+                            className="font-light mt-6 lg:mt-10 flex items-center gap-2 font-['Inter] min-w-full hover:bg-gray-200 text-[#637c8b]"
                         >
                             <Navigation className="w-6 h-6 lg:w-8 lg:h-8" />
                             Abrir no Google Maps
