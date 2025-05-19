@@ -59,8 +59,8 @@ export default function Padrinhos() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-lg leading-tight space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 100 }}>
-                        <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 400, fontFamily: "'Luxurious Script'" }}>
+                    <div className="flex flex-col justify-center items-center text-lg leading-tight space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 200 }}>
+                        <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 600, fontFamily: "'Luxurious Script'" }}>
                             Aos nossos amados padrinhos:
                         </h2>
                         <p className="text-center max-w-xl">
@@ -72,7 +72,7 @@ export default function Padrinhos() {
                         <p className="text-center max-w-xl">
                             Vocês são exemplos de amizade, lealdade e companheirismo, e temos a sorte de contar com pessoas tão maravilhosas em nossas vidas.
                         </p>
-                        <p className="mt-6 font-bold text-xl text-center text-[#d6b293]" style={{ fontWeight: 400 }}>
+                        <p className="mt-6 font-bold text-xl text-center text-[#d6b293]" style={{ fontWeight: 600 }}>
                             Com todo o carinho,
                         </p>
                         <p className="font-thin text-[3rem] mt-4 text-center text-[#d6b293]" style={{ fontFamily: "'Luxurious Script'" }}>
