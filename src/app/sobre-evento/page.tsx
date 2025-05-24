@@ -35,9 +35,9 @@ const SobreEvento = () => {
                             <div className="mt-8">
                                 <h3 className="text-2xl font-light text-[#d6b293] pt-4">Detalhes do Evento</h3>
                                 <ul className="text-[#d6b293] space-y-1">
-                                    <li><strong>Data:</strong> 06 de julho de 2025</li>
-                                    <li><strong>Cerimônia:</strong> 10:00</li>
-                                    <li><strong>Recepção:</strong> 12:00</li>
+                                    <li><strong>Data:</strong> <span className='text-[#637c8b]'>06 de julho de 2025</span></li>
+                                    <li><strong>Cerimônia:</strong> <span className='text-[#637c8b]'>10:00</span></li>
+                                    <li><strong>Recepção:</strong> <span className='text-[#637c8b]'>12:00</span></li>
                                 </ul>
                             </div>
                         </CardContent>
