@@ -72,11 +72,11 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-6">
           <div className="text-center space-y-2">
-            <h1 className="text-[4rem] lg:text-[6rem] font-thin tracking-tight text-[#d6b293] letter" style={{ fontFamily: 'Luxurious Script' }}>
+            <h1 className="text-[4rem] lg:text-[6rem] font-light tracking-tight text-[#d6b293] letter" style={{ fontFamily: 'Luxurious Script' }}>
               Lista de Presentes
             </h1>
             <p
-              className="text-muted-foreground font-thin max-w-xl mx-auto text-center"
+              className="text-muted-foreground font-light max-w-xl mx-auto text-center"
               style={{ fontFamily: 'Inter' }}
             >
               Caso queira nos presentear, preferimos contribuições em dinheiro.

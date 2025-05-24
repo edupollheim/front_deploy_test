@@ -17,7 +17,7 @@ const Anuncios = () => {
       <div className="flex justify-between items-center h-screen p-6 bg-[#fffaf6]">
         {/* Coluna de anúncios à esquerda */}
         <div className="flex-1 pr-6 pt-2">
-          <h1 className="text-[4rem] font-thin titulo mt-[-4.5rem] text-[#d6b293] text-center lg:text-[10rem] letter">{title}</h1>
+          <h1 className="text-[4rem] font-light titulo mt-[-4.5rem] text-[#d6b293] text-center lg:text-[10rem] letter">{title}</h1>
   
           {/* Renderizando os anúncios */}
           {Object.keys(textos).map((key) => {

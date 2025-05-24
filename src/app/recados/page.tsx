@@ -95,10 +95,10 @@ const Guestbook = () => {
             <div className="max-w-3xl mx-auto space-y-8 py-8 min-h-screen bg-[#fffaf6]">
                 <Card className="border-none shadow-lg border border-gray-200 bg-white">
                     <CardHeader>
-                        <CardTitle className="text-[4rem] lg:text-[5rem] font-thin text-center flex items-center justify-center gap-2 text-[#d6b293] letter" style={{ fontFamily: "Luxurious Script" }}>
+                        <CardTitle className="text-[4rem] lg:text-[5rem] font-light text-center flex items-center justify-center gap-2  letter" style={{ fontFamily: "Luxurious Script" }}>
                             Livro de Recados
                         </CardTitle>
-                        <p className="text-muted-foreground font-thin text-center" style={{ fontFamily: 'Inter' }}>
+                        <p className="text-muted-foreground font-light text-center" style={{ fontFamily: 'Inter' }}>
                             Deixe aqui seu recado para os noivos!💌
                         </p>
                     </CardHeader>
@@ -109,9 +109,9 @@ const Guestbook = () => {
                             </Alert>
                         )}
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6 text-black">
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-thin font-['Inter']">
+                                <label htmlFor="name" className="text-sm font-['Inter']">
                                     Seu nome:
                                 </label>
                                 <Input
@@ -121,13 +121,13 @@ const Guestbook = () => {
                                     onChange={(e) => setName(e.target.value)}
                                     placeholder="Digite seu nome"
                                     required
-                                    className="w-full font-thin font-['Inter'] border border-gray-200 text-black"
+                                    className="w-full font-light font-['Inter'] border border-gray-200 text-black"
                                     disabled={isSubmitting}
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-thin font-['Inter']">
+                                <label htmlFor="message" className="text-sm font-light font-['Inter']">
                                     Sua mensagem:
                                 </label>
                                 <Textarea
@@ -136,7 +136,7 @@ const Guestbook = () => {
                                     onChange={(e) => setMessage(e.target.value)}
                                     placeholder="Escreva seu recado..."
                                     required
-                                    className="w-full min-h-[120px] font-thin font-['Inter'] border border-gray-200 text-black"
+                                    className="w-full min-h-[120px] font-light font-['Inter'] border border-gray-200 text-black"
                                     disabled={isSubmitting}
                                 />
                             </div>
@@ -164,7 +164,7 @@ const Guestbook = () => {
 
                 <Card className="border-none shadow-lg border border-gray-200 bg-white">
                     <CardHeader>
-                        <CardTitle className="text-2xl font-thin font-['Inter'] text-[#d6b293]">
+                        <CardTitle className="text-2xl font-light font-['Inter'] text-[#d6b293]">
                             Recados Recentes
                         </CardTitle>
                     </CardHeader>
@@ -174,7 +174,7 @@ const Guestbook = () => {
                                 <Loader2 className="w-8 h-8 animate-spin text-[#d6b293]" />
                             </div>
                         ) : messages.length === 0 ? (
-                            <div className="text-center py-8 text-gray-500  font-thin font-['Inter']">
+                            <div className="text-center py-8 text-gray-500  font-light font-['Inter']">
                                 <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-20" />
                                 <p>Nenhum recado por enquanto...</p>
                             </div>

@@ -108,7 +108,7 @@ export default function SobreNos() {
         <div className="w-full px-4 md:px-8">
           <div className="p-4 rounded-lg">
             <p
-              className="text-center text-[#637c8b] lg:text-xl font-thin"
+              className="text-center text-[#637c8b] lg:text-xl font-light"
               style={{ fontFamily: "Inter" }}
             >
               “Foi o Senhor que fez isto, e é maravilhoso aos nossos olhos” <br />

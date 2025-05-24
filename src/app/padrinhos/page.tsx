@@ -30,7 +30,7 @@ export default function Padrinhos() {
 
     return (
         <div className="bg-[#f5f1ee] min-h-screen">
-            <h2 className="text-[4rem] lg:text-[6rem] font-thin text-center mb-8 pt-4 text-[#d6b293] letter" style={{ fontFamily: "'Luxurious Script'" }}>
+            <h2 className="text-[4rem] lg:text-[6rem] font-light text-center mb-8 pt-4 text-[#d6b293] letter" style={{ fontFamily: "'Luxurious Script'" }}>
                 Nossos Padrinhos
             </h2>
             <div className="container mx-auto max-w-5xl px-4">
@@ -59,7 +59,7 @@ export default function Padrinhos() {
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-lg leading-tight space-y-4 px-0 text-[#637c8b] font['Inter'] font-thin" style={{ fontFamily: "'Inter'", fontWeight: 200 }}>
+                    <div className="flex flex-col justify-center items-center text-lg leading-tight space-y-4 px-0 text-[#637c8b] font['Inter'] font-light" style={{ fontFamily: "'Inter'", fontWeight: 200 }}>
                         <h2 className="text-6xl mb-4 text-[#d6b293] text-center" style={{ fontWeight: 600, fontFamily: "'Luxurious Script'" }}>
                             Aos nossos amados padrinhos:
                         </h2>
@@ -75,7 +75,7 @@ export default function Padrinhos() {
                         <p className="mt-6 font-bold text-xl text-center text-[#d6b293]" style={{ fontWeight: 600 }}>
                             Com todo o carinho,
                         </p>
-                        <p className="font-thin text-[3rem] mt-4 text-center text-[#d6b293]" style={{ fontFamily: "'Luxurious Script'" }}>
+                        <p className="font-light text-[3rem] mt-4 text-center text-[#d6b293]" style={{ fontFamily: "'Luxurious Script'" }}>
                             Eduardo & Jéssica
                         </p>
                     </div>

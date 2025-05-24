@@ -20,14 +20,14 @@ const Manual = () => {
   return (
     <div className="p-6">
       <div className="text-[3rem] md:text-[5rem] lg:text-[10rem]">
-        <h1 className="font-thin text-center mb-6 text-[#d6b293] letter" style={{fontFamily: "Luxurious Script"}}>{title}</h1>
+        <h1 className="font-light text-center mb-6 text-[#d6b293] letter" style={{fontFamily: "Luxurious Script"}}>{title}</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:max-w-[80rem] lg:mx-auto">
         {rules.map((rule, index) => (
           <div key={index}>
             <div className="flex items-center justify-start p-4 bg-gray-100  rounded-lg border border-gray-300  lg:min-h-[7rem] text-black">
               {rule.icon} {/* Ícone da regra */}
-              <span className="ml-3 font-['Inter'] font-thin text-[1rem]">{rule.text}</span> {/* Texto da regra */}
+              <span className="ml-3 font-['Inter'] font-light text-[1rem]">{rule.text}</span> {/* Texto da regra */}
             </div>
           </div>
         ))}

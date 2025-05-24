@@ -22,13 +22,13 @@ const SobreEvento = () => {
                     <Card className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
                         <CardHeader className="bg-gray-100 border border-gray-200 py-2 text-center">
                             <CardTitle 
-                                className="text-[3rem] lg:text-[5rem] font-thin text-[#d6b293] letter" 
+                                className="text-[3rem] lg:text-[5rem] font-light text-[#d6b293] letter" 
                                 style={{ fontFamily: "'Luxurious Script'" }}
                             >
                                 Cerimônia e Recepção
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="p-6 space-y-4 text-lg lg:text-xl text-[#637c8b] font-thin font-['Inter']">
+                        <CardContent className="p-6 space-y-4 text-lg lg:text-xl text-[#637c8b] font-light font-['Inter']">
                             <p className="text-justify">
                                 Estamos ansiosos para compartilhar esse momento especial com vocês! Nossa cerimônia será breve e pontual, seguida por um almoço no mesmo local. Contamos com sua presença!
                             </p>
@@ -49,7 +49,7 @@ const SobreEvento = () => {
                             <MapPin className="w-8 h-8 lg:w-10 lg:h-10 text-[#d6b293] font-['Inter']" />
                             Sítio Paiol Velho
                         </h2>
-                        <p className="text-lg text-[#637c8b] mt-2 lg:text-2xl font-['Inter'] font-thin">
+                        <p className="text-lg text-[#637c8b] mt-2 lg:text-2xl font-['Inter'] font-light">
                             Estr. do Oeste, 4025 - Pirabeiraba, Joinville - SC
                         </p>
                         <div className="w-full mt-6 rounded-xl overflow-hidden shadow-xl lg:h-[400px]">
