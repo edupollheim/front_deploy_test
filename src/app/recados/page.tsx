@@ -95,7 +95,7 @@ const Guestbook = () => {
             <div className="max-w-3xl mx-auto space-y-8 py-8 min-h-screen bg-[#fffaf6]">
                 <Card className="border-none shadow-lg border border-gray-200 bg-white">
                     <CardHeader>
-                        <CardTitle className="text-[4rem] lg:text-[5rem] font-light text-center flex items-center justify-center gap-2  letter" style={{ fontFamily: "Luxurious Script" }}>
+                        <CardTitle className="text-[4rem] lg:text-[5rem] font-light text-center flex items-center justify-center gap-2 text-[#d6b293] letter" style={{ fontFamily: "Luxurious Script" }}>
                             Livro de Recados
                         </CardTitle>
                         <p className="text-muted-foreground font-light text-center" style={{ fontFamily: 'Inter' }}>
